@@ -1,0 +1,7 @@
+Vilka klasser har ni? Varför?
+Hur genererar ni ID? Är det säkert att att de blir unika?
+
+Kolla methods finns på allt
+Returnerar status-kod
+
+Testas allt, både lyckade anrop och misslyckade

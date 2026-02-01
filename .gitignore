@@ -1,1 +1,8 @@
 venv/
+.coverage
+azure_credentials.txt
+*.db
+instance/
+htmlcov/
+__pycache__
+.pytest_cache
