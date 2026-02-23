@@ -1,0 +1,9 @@
+Vad har ni ändrat?
+Hur spara ni undan er JWT_SECRET_KEY?
+Har ni satt expiration på tokens?
+    Behöver man det? Kommer ni göra det i projektet?
+Salt?
+Har ni ändrat något i databasen?
+Hur hanterar ni skapande/inloggning/utloggning?
+Har ni ändrat något i era andra routes?
+Vilka tester har ni lagt till?
