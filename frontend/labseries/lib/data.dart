@@ -1,22 +1,25 @@
+import 'dart:convert';
+import 'package:logging/logging.dart';
+
+import 'package:http/http.dart' as http;
 import 'package:labseries/structure.dart';
 
-const Trilogy data = Trilogy(
-  title: "The Lord of the Rings",
-  description:
-      "The Lord of the Rings trilogy is a cinematic masterpiece based on the novels by J.R.R. Tolkien. The trilogy follows the journey of Frodo Baggins and the Fellowship of the Ring as they strive to destroy the One Ring and ensure the downfall of its maker, the Dark Lord Sauron.",
-  movies: [
-    Movie(
-      title: "The Fellowship of the Ring",
-      url: "https://trilogy-server.azurewebsites.net/lord-of-the-rings/1",
-    ),
-    Movie(
-      title: "The Two Towers",
-      url: "https://trilogy-server.azurewebsites.net/lord-of-the-rings/2",
-    ),
-    Movie(
-      title: "The Return of the King",
-      url: "https://trilogy-server.azurewebsites.net/lord-of-the-rings/3",
-    ),
-  ],
-  url: "https://trilogy-server.azurewebsites.net/lord-of-the-rings/1",
-);
+class Data {
+  static Future<List<Trilogy>> data = _getData();
+
+  static Future<List<Trilogy>> _getData() async {
+    Future<http.Response> response = http.get(Uri.parse('https://trilogy-server.azurewebsites.net/trilogies'));
+
+    return response.then((response) {
+      if (response.statusCode != 200) {
+        Logger.root.log(Level.WARNING, response.body);
+        throw Exception('Data could not be loaded, error code: ${response.statusCode}.');
+      }
+
+      return (json.decode(response.body) as List)
+        .cast<Map<String, dynamic>>()
+        .map(Trilogy.fromJson)
+        .toList();
+    });
+  }
+}

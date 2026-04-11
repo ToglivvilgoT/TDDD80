@@ -9,10 +9,7 @@ class DetailedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(trilogy.title),
-        backgroundColor: Colors.lime,
-      ),
+      appBar: AppBar(title: Text(trilogy.title)),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(10),
@@ -29,10 +26,10 @@ class DetailedPage extends StatelessWidget {
                 Text(trilogy.description),
                 MovieList(trilogy.movies),
               ],
-            )
+            ),
           ),
         ),
-      )
+      ),
     );
   }
 }
@@ -44,11 +41,14 @@ class MovieList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 10,
-      children: [
-        for (var movie in movies) MovieCard(movie),
-      ]
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        spacing: 10,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [for (var movie in movies) MovieCard(movie)],
+      ),
     );
   }
 }
@@ -78,4 +78,3 @@ class MovieCard extends StatelessWidget {
     );
   }
 }
-
