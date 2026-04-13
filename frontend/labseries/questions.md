@@ -59,3 +59,23 @@ Var kastas fel och var fångas de? Hur fungerar det med futures???
 ### http-anrop
 
 Vart görs http-anropet och varför bör det inte göras inuti build()-metoden?
+
+## F4
+
+### State vs stateless
+
+Vilka widgets är stateful och varför? Varför är inte alla stateful, finns det nackdelar?
+Vad är setState och vad används den till?
+
+### Provider vs setState()
+
+Vilken har ni använt? Vilken är bäst? Vilken i projektet?
+
+### Custom Widgets
+
+Kolla igenom:
+
+- PhotoPicker
+- AddTrilogy
+- AddMovies
+- AddMovie

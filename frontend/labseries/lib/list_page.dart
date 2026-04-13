@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:labseries/add_trilogy_page.dart';
+import 'package:labseries/components/photo_picker.dart';
 import 'package:labseries/detailed_page.dart';
 import 'package:labseries/structure.dart';
 
-class ListPage extends StatelessWidget {
-  const ListPage(this.trilogies, {super.key});
-
+class ListPage extends StatefulWidget {
   final Future<List<Trilogy>> trilogies;
 
+  const ListPage(this.trilogies, {super.key});
+
+  @override
+  State<ListPage> createState() => _ListPageState();
+}
+
+class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +23,7 @@ class ListPage extends StatelessWidget {
         BottomNavigationBarItem(icon: Icon(Icons.abc), label: "World"),
       ]),
       body: FutureBuilder(
-        future: trilogies,
+        future: widget.trilogies,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var trilogies = snapshot.data!;
@@ -34,7 +41,18 @@ class ListPage extends StatelessWidget {
         }
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: () async {
+          Trilogy? trilogy = await Navigator.push<Trilogy>(
+            context, MaterialPageRoute<Trilogy>(
+              builder: (context) => const AddTrilogyPage()
+            )
+          );
+          if (trilogy != null) {
+            setState(() {
+              widget.trilogies.then((trilogies) => trilogies.add(trilogy));
+            });
+          }
+        },
         child: Icon(Icons.add),
       ),
     );
