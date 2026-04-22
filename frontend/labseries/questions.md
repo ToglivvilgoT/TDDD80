@@ -79,3 +79,14 @@ Kolla igenom:
 - AddTrilogy
 - AddMovies
 - AddMovie
+
+## F5
+
+### Hur har ni använt provider
+
+- Vilken är er datamodell?
+- Var har ni ChangeNotifierProvider(s)?
+- Var har ni Consumers/Provider.of()/context.watch()?
+- Skillnader från när ni använde setState()?
+- Är era widgets fortfarande stateful? Varför/varför inte?
+- Stötte ni på några problem? Andra tankar?
