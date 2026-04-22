@@ -25,7 +25,6 @@ class _AddMoviesPageState extends State<AddMoviesPage> {
             child: ListView.builder(
               itemCount: movies.length,
               itemBuilder: (context, index) => _MovieTile(movies[index]),
-              shrinkWrap: true,
             ),
           ),
           ElevatedButton(
@@ -62,7 +61,9 @@ class _MovieTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(movie.title),
-      leading: Image(image: NetworkImage(movie.url)),
+      leading: CircleAvatar(
+        backgroundImage: movie.image,
+      ),
     );
   }
 }

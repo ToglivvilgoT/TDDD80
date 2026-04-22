@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:labseries/add_trilogy_page.dart';
-import 'package:labseries/components/photo_picker.dart';
 import 'package:labseries/detailed_page.dart';
 import 'package:labseries/structure.dart';
 
@@ -71,7 +70,7 @@ class TrilogyTile extends StatelessWidget {
         leading: CircleAvatar(
           minRadius: 10,
           maxRadius: 20,
-          backgroundImage: NetworkImage(trilogy.url),
+          backgroundImage: trilogy.image,
         ),
         title: Text(trilogy.title),
         onTap:

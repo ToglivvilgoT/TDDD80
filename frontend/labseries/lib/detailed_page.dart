@@ -19,7 +19,7 @@ class DetailedPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CircleAvatar(
-                  backgroundImage: NetworkImage(trilogy.url),
+                  backgroundImage: trilogy.image,
                   minRadius: 25,
                   maxRadius: 100,
                 ),
@@ -67,7 +67,7 @@ class MovieCard extends StatelessWidget {
           spacing: 10,
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(movie.url),
+              backgroundImage: movie.image,
               minRadius: 25,
               maxRadius: 50,
             ),
